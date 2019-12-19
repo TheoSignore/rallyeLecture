@@ -1,0 +1,29 @@
+﻿<Properties StartupConfiguration="{EC91C769-2F24-4830-9345-57C67498550D}|Default">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="rallyeLecture - ajout eleves/form_auth.cs" Line="49" Column="134" />
+      <File FileName="rallyeLecture - ajout eleves/LesEleves.cs" Line="16" Column="12" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="rallyeLecture - ajout eleves" expanded="True">
+            <Node name="rallyeLecture - ajout eleves" expanded="True">
+              <Node name="form_auth.cs" expanded="True" />
+              <Node name="Form1.cs" expanded="True" />
+              <Node name="Form3.cs" expanded="True" />
+              <Node name="LesEleves.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.rallyeLecture_220-_220ajout_220eleves PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
