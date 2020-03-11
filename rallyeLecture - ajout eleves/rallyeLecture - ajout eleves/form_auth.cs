@@ -37,7 +37,7 @@ namespace rallyeLecture___ajout_eleves {
         private void connexionRL(string usr, string wpa, form_origin motherWindow) {
             MySqlConnection cnx;
             string sCnx;
-            sCnx = String.Format("server=172.16.0.148;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
+            sCnx = String.Format("server=172.16.0.149;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
             cnx = new MySqlConnection(sCnx);
             try {
                 cnx.Open();

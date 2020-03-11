@@ -18,7 +18,7 @@ namespace rallyeLecture___ajout_eleves {
             motherWindow = F1;
             MySqlConnection cnx;
             string sCnx;
-            sCnx = String.Format("server=172.16.0.148;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
+            sCnx = String.Format("server=172.16.0.149;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
             cnx = new MySqlConnection(sCnx);
             cnx.Open();
             string requete = "select id, niveauScolaire from niveau";
@@ -35,9 +35,10 @@ namespace rallyeLecture___ajout_eleves {
         }
 
         private void btn_intlaunch_Click(object sender, EventArgs e) {
-            string aff = "";
+            int niv = cb_sclrlvl.SelectedIndex + 1;
+            int year = Convert.ToInt32(tb_sclyr.Text) ;
             for (int i = 0; i < clb_csvf.CheckedItems.Count; i++) {
-                string selectedCsvPath = tb_csvf.Text + "\\" +clb_csvf.CheckedItems[i];
+                string selectedCsvPath = lbl_csvf.Text + "\\" +clb_csvf.CheckedItems[i];
                 PassWordType pst;
                 if ((rb_rand.Checked)||(rb_build.Checked)) {
                     if (rb_rand.Checked) {
@@ -47,19 +48,28 @@ namespace rallyeLecture___ajout_eleves {
                         pst = PassWordType.construit;
                     }
                     List<Eleve> leselv = LesEleves.LoadCsv(pst, selectedCsvPath);
+                    MySqlConnection cnx;
+                    string sCnx;
+                    sCnx = String.Format("server=172.16.0.149;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
+                    cnx = new MySqlConnection(sCnx);
+                    cnx.Open();
+                    string requete = "insert into classe(id,anneeScolaire) values((select max(id)+1 from classe),"+year+","+niv+")";
+                    MySqlCommand cmd = new MySqlCommand();
+                    cmd.Connection = cnx;
+                    cmd.CommandText = requete;
+                    cmd.ExecuteNonQuery();
                     foreach (Eleve elv in leselv) {
-                        aff += String.Format("{0} {1} {2} {3}\r\n",elv.Login,elv.Nom,elv.Prenom,elv.PassWord);
+                        
                     }
                 }
             }
-            lbl_eleveList.Text = aff;
         }
 
         private void btn_brwsecsv_Click(object sender, EventArgs e) {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.RootFolder = Environment.SpecialFolder.MyComputer;
             if (fbd.ShowDialog() == DialogResult.OK) {
-                tb_csvf.Text = fbd.SelectedPath;
+                lbl_csvf.Text = fbd.SelectedPath;
                 string[] allfiles = Directory.GetFiles(fbd.SelectedPath);
                 for (int i = 0; i < allfiles.Length; i++) {
                     if (allfiles[i].Contains(".csv")) {

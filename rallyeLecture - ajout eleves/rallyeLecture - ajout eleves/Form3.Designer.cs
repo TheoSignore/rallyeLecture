@@ -28,7 +28,6 @@
             this.lbl_schlyr = new System.Windows.Forms.Label();
             this.lbl_lvl = new System.Windows.Forms.Label();
             this.lbl_wpatype = new System.Windows.Forms.Label();
-            this.tb_csvf = new System.Windows.Forms.TextBox();
             this.clb_csvf = new System.Windows.Forms.CheckedListBox();
             this.tb_sclyr = new System.Windows.Forms.TextBox();
             this.cb_sclrlvl = new System.Windows.Forms.ComboBox();
@@ -36,6 +35,7 @@
             this.rb_build = new System.Windows.Forms.RadioButton();
             this.btn_intlaunch = new System.Windows.Forms.Button();
             this.btn_brwsecsv = new System.Windows.Forms.Button();
+            this.lbl_csvf = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_fdir
@@ -82,13 +82,6 @@
             this.lbl_wpatype.Size = new System.Drawing.Size(112, 13);
             this.lbl_wpatype.TabIndex = 4;
             this.lbl_wpatype.Text = "Type de mot de passe";
-            // 
-            // tb_csvf
-            // 
-            this.tb_csvf.Location = new System.Drawing.Point(146, 6);
-            this.tb_csvf.Name = "tb_csvf";
-            this.tb_csvf.Size = new System.Drawing.Size(274, 20);
-            this.tb_csvf.TabIndex = 5;
             // 
             // clb_csvf
             // 
@@ -155,11 +148,21 @@
             this.btn_brwsecsv.UseVisualStyleBackColor = true;
             this.btn_brwsecsv.Click += new System.EventHandler(this.btn_brwsecsv_Click);
             // 
+            // lbl_csvf
+            // 
+            this.lbl_csvf.AutoSize = true;
+            this.lbl_csvf.Location = new System.Drawing.Point(143, 9);
+            this.lbl_csvf.Name = "lbl_csvf";
+            this.lbl_csvf.Size = new System.Drawing.Size(145, 13);
+            this.lbl_csvf.TabIndex = 13;
+            this.lbl_csvf.Text = "Aucun  répertoire séléctionné";
+            // 
             // form_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(536, 282);
+            this.Controls.Add(this.lbl_csvf);
             this.Controls.Add(this.btn_brwsecsv);
             this.Controls.Add(this.btn_intlaunch);
             this.Controls.Add(this.rb_build);
@@ -167,7 +170,6 @@
             this.Controls.Add(this.cb_sclrlvl);
             this.Controls.Add(this.tb_sclyr);
             this.Controls.Add(this.clb_csvf);
-            this.Controls.Add(this.tb_csvf);
             this.Controls.Add(this.lbl_wpatype);
             this.Controls.Add(this.lbl_lvl);
             this.Controls.Add(this.lbl_schlyr);
@@ -188,7 +190,6 @@
         private System.Windows.Forms.Label lbl_schlyr;
         private System.Windows.Forms.Label lbl_lvl;
         private System.Windows.Forms.Label lbl_wpatype;
-        private System.Windows.Forms.TextBox tb_csvf;
         private System.Windows.Forms.CheckedListBox clb_csvf;
         private System.Windows.Forms.TextBox tb_sclyr;
         private System.Windows.Forms.ComboBox cb_sclrlvl;
@@ -196,5 +197,6 @@
         private System.Windows.Forms.RadioButton rb_build;
         private System.Windows.Forms.Button btn_intlaunch;
         private System.Windows.Forms.Button btn_brwsecsv;
+        private System.Windows.Forms.Label lbl_csvf;
     }
 }

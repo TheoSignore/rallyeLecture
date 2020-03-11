@@ -41,3 +41,18 @@ C:\Users\tsignore\PPE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture -
 C:\Users\tsignore\PPE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.csproj.CopyComplete
 C:\Users\tsignore\PPE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.exe
 C:\Users\tsignore\PPE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.pdb
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\bin\Debug\rallyeLecture - ajout eleves.exe.config
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\bin\Debug\rallyeLecture - ajout eleves.exe
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\bin\Debug\rallyeLecture - ajout eleves.pdb
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\bin\Debug\MySql.Data.dll
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\bin\Debug\MySql.Data.xml
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.csprojAssemblyReference.cache
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture___ajout_eleves.form_origin.resources
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture___ajout_eleves.form_add.resources
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture___ajout_eleves.form_auth.resources
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture___ajout_eleves.Properties.Resources.resources
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.csproj.GenerateResource.cache
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.csproj.CoreCompileInputs.cache
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.csproj.CopyComplete
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.exe
+C:\Users\tsignore\RALLYE LECTURE\rallyeLecture\rallyeLecture - ajout eleves\rallyeLecture - ajout eleves\obj\Debug\rallyeLecture - ajout eleves.pdb
