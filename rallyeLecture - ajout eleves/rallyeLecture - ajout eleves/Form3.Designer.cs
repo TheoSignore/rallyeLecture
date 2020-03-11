@@ -36,7 +36,6 @@
             this.rb_build = new System.Windows.Forms.RadioButton();
             this.btn_intlaunch = new System.Windows.Forms.Button();
             this.btn_brwsecsv = new System.Windows.Forms.Button();
-            this.lbl_eleveList = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_fdir
@@ -156,21 +155,11 @@
             this.btn_brwsecsv.UseVisualStyleBackColor = true;
             this.btn_brwsecsv.Click += new System.EventHandler(this.btn_brwsecsv_Click);
             // 
-            // lbl_eleveList
-            // 
-            this.lbl_eleveList.AutoSize = true;
-            this.lbl_eleveList.Location = new System.Drawing.Point(536, 4);
-            this.lbl_eleveList.Name = "lbl_eleveList";
-            this.lbl_eleveList.Size = new System.Drawing.Size(83, 13);
-            this.lbl_eleveList.TabIndex = 13;
-            this.lbl_eleveList.Text = "Liste des élèves";
-            // 
             // form_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 522);
-            this.Controls.Add(this.lbl_eleveList);
+            this.ClientSize = new System.Drawing.Size(536, 282);
             this.Controls.Add(this.btn_brwsecsv);
             this.Controls.Add(this.btn_intlaunch);
             this.Controls.Add(this.rb_build);
@@ -207,6 +196,5 @@
         private System.Windows.Forms.RadioButton rb_build;
         private System.Windows.Forms.Button btn_intlaunch;
         private System.Windows.Forms.Button btn_brwsecsv;
-        private System.Windows.Forms.Label lbl_eleveList;
     }
 }
