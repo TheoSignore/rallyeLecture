@@ -18,7 +18,7 @@ namespace rallyeLecture___ajout_eleves {
             motherWindow = F1;
             MySqlConnection cnx;
             string sCnx;
-            sCnx = String.Format("server=172.16.0.149;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
+            sCnx = String.Format("server=172.16.0.148;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
             cnx = new MySqlConnection(sCnx);
             cnx.Open();
             string requete = "select id, niveauScolaire from niveau";
@@ -37,31 +37,46 @@ namespace rallyeLecture___ajout_eleves {
         private void btn_intlaunch_Click(object sender, EventArgs e) {
             int niv = cb_sclrlvl.SelectedIndex + 1;
             int year = Convert.ToInt32(tb_sclyr.Text) ;
-            for (int i = 0; i < clb_csvf.CheckedItems.Count; i++) {
-                string selectedCsvPath = lbl_csvf.Text + "\\" +clb_csvf.CheckedItems[i];
-                PassWordType pst;
-                if ((rb_rand.Checked)||(rb_build.Checked)) {
-                    if (rb_rand.Checked) {
-                        pst = PassWordType.aleatoire;
-                    }
-                    else {
-                        pst = PassWordType.construit;
-                    }
-                    List<Eleve> leselv = LesEleves.LoadCsv(pst, selectedCsvPath);
-                    MySqlConnection cnx;
-                    string sCnx;
-                    sCnx = String.Format("server=172.16.0.149;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
-                    cnx = new MySqlConnection(sCnx);
-                    cnx.Open();
-                    string requete = "insert into classe(id,anneeScolaire) values((select max(id)+1 from classe),"+year+","+niv+")";
-                    MySqlCommand cmd = new MySqlCommand();
+            string selectedCsvPath = lbl_csvf.Text + "\\" +cb_csvf.SelectedItem;
+            PassWordType pst;
+            if ((rb_rand.Checked)||(rb_build.Checked)) {
+                if (rb_rand.Checked) {
+                    pst = PassWordType.aleatoire;
+                }
+                else {
+                    pst = PassWordType.construit;
+                }
+                List<Eleve> leselv = LesEleves.LoadCsv(pst, selectedCsvPath);
+                MySqlConnection cnx;
+                string sCnx;
+                sCnx = String.Format("server=172.16.0.148;uid=AdminRl;database=rallyeLecture;port=3306;pwd=siojjr");
+                cnx = new MySqlConnection(sCnx);
+                cnx.Open();
+                string requete = "insert into classe(anneeScolaire,idNiveau) values('"+year+"',"+niv+")";
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.Connection = cnx;
+                cmd.CommandText = requete;
+                cmd.ExecuteNonQuery();
+                requete = "select max(id) from classe";
+                cmd.Connection = cnx;
+                cmd.CommandText = requete;
+                int idClasse = Convert.ToInt32(cmd.ExecuteScalar());
+                foreach (Eleve elv in leselv) {
+                    requete = "select max(id) from aauth_users";
+                    cmd.Connection = cnx;
+                    cmd.CommandText = requete;
+                    int idAuth = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
+                    requete = "insert into aauth_users(email,pass) values('"+elv.Login+"','"+Hash.GetSha256FromString(elv.PassWord,Convert.ToString(idAuth))+"')";
                     cmd.Connection = cnx;
                     cmd.CommandText = requete;
                     cmd.ExecuteNonQuery();
-                    foreach (Eleve elv in leselv) {
-                        
-                    }
+                    requete = "insert into eleve(idClasse,nom,prenom,login,idAuth) values("+idClasse+",'"+elv.Nom+"','"+elv.Prenom+"','"+elv.Login+"',"+idAuth+")";
+                    cmd.Connection = cnx;
+                    cmd.CommandText = requete;
+                    cmd.ExecuteNonQuery();
                 }
+                LesEleves.CreateCsvPasswordFile(cb_sclrlvl.SelectedText,year,leselv);
+                lbl_info.Text = String.Format("Fichier {0} inséré.",cb_csvf.SelectedItem);
             }
         }
 
@@ -74,7 +89,7 @@ namespace rallyeLecture___ajout_eleves {
                 for (int i = 0; i < allfiles.Length; i++) {
                     if (allfiles[i].Contains(".csv")) {
                         string[] decomposedPath = allfiles[i].Split('\\');
-                        clb_csvf.Items.Add(decomposedPath[decomposedPath.Length - 1]);
+                        cb_csvf.Items.Add(decomposedPath[decomposedPath.Length - 1]);
                     }
                 }
             }

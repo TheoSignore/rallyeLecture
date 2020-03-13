@@ -28,7 +28,6 @@
             this.lbl_schlyr = new System.Windows.Forms.Label();
             this.lbl_lvl = new System.Windows.Forms.Label();
             this.lbl_wpatype = new System.Windows.Forms.Label();
-            this.clb_csvf = new System.Windows.Forms.CheckedListBox();
             this.tb_sclyr = new System.Windows.Forms.TextBox();
             this.cb_sclrlvl = new System.Windows.Forms.ComboBox();
             this.rb_rand = new System.Windows.Forms.RadioButton();
@@ -36,6 +35,8 @@
             this.btn_intlaunch = new System.Windows.Forms.Button();
             this.btn_brwsecsv = new System.Windows.Forms.Button();
             this.lbl_csvf = new System.Windows.Forms.Label();
+            this.cb_csvf = new System.Windows.Forms.ComboBox();
+            this.lbl_info = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_fdir
@@ -59,7 +60,7 @@
             // lbl_schlyr
             // 
             this.lbl_schlyr.AutoSize = true;
-            this.lbl_schlyr.Location = new System.Drawing.Point(53, 163);
+            this.lbl_schlyr.Location = new System.Drawing.Point(53, 80);
             this.lbl_schlyr.Name = "lbl_schlyr";
             this.lbl_schlyr.Size = new System.Drawing.Size(77, 13);
             this.lbl_schlyr.TabIndex = 2;
@@ -68,7 +69,7 @@
             // lbl_lvl
             // 
             this.lbl_lvl.AutoSize = true;
-            this.lbl_lvl.Location = new System.Drawing.Point(89, 197);
+            this.lbl_lvl.Location = new System.Drawing.Point(89, 127);
             this.lbl_lvl.Name = "lbl_lvl";
             this.lbl_lvl.Size = new System.Drawing.Size(41, 13);
             this.lbl_lvl.TabIndex = 3;
@@ -77,23 +78,15 @@
             // lbl_wpatype
             // 
             this.lbl_wpatype.AutoSize = true;
-            this.lbl_wpatype.Location = new System.Drawing.Point(18, 231);
+            this.lbl_wpatype.Location = new System.Drawing.Point(18, 163);
             this.lbl_wpatype.Name = "lbl_wpatype";
             this.lbl_wpatype.Size = new System.Drawing.Size(112, 13);
             this.lbl_wpatype.TabIndex = 4;
             this.lbl_wpatype.Text = "Type de mot de passe";
             // 
-            // clb_csvf
-            // 
-            this.clb_csvf.FormattingEnabled = true;
-            this.clb_csvf.Location = new System.Drawing.Point(146, 39);
-            this.clb_csvf.Name = "clb_csvf";
-            this.clb_csvf.Size = new System.Drawing.Size(355, 109);
-            this.clb_csvf.TabIndex = 6;
-            // 
             // tb_sclyr
             // 
-            this.tb_sclyr.Location = new System.Drawing.Point(146, 160);
+            this.tb_sclyr.Location = new System.Drawing.Point(146, 77);
             this.tb_sclyr.Name = "tb_sclyr";
             this.tb_sclyr.Size = new System.Drawing.Size(100, 20);
             this.tb_sclyr.TabIndex = 7;
@@ -101,15 +94,15 @@
             // cb_sclrlvl
             // 
             this.cb_sclrlvl.FormattingEnabled = true;
-            this.cb_sclrlvl.Location = new System.Drawing.Point(146, 189);
+            this.cb_sclrlvl.Location = new System.Drawing.Point(146, 119);
             this.cb_sclrlvl.Name = "cb_sclrlvl";
-            this.cb_sclrlvl.Size = new System.Drawing.Size(121, 21);
+            this.cb_sclrlvl.Size = new System.Drawing.Size(100, 21);
             this.cb_sclrlvl.TabIndex = 8;
             // 
             // rb_rand
             // 
             this.rb_rand.AutoSize = true;
-            this.rb_rand.Location = new System.Drawing.Point(146, 229);
+            this.rb_rand.Location = new System.Drawing.Point(146, 163);
             this.rb_rand.Name = "rb_rand";
             this.rb_rand.Size = new System.Drawing.Size(65, 17);
             this.rb_rand.TabIndex = 9;
@@ -120,7 +113,7 @@
             // rb_build
             // 
             this.rb_build.AutoSize = true;
-            this.rb_build.Location = new System.Drawing.Point(252, 229);
+            this.rb_build.Location = new System.Drawing.Point(238, 163);
             this.rb_build.Name = "rb_build";
             this.rb_build.Size = new System.Drawing.Size(65, 17);
             this.rb_build.TabIndex = 10;
@@ -130,7 +123,7 @@
             // 
             // btn_intlaunch
             // 
-            this.btn_intlaunch.Location = new System.Drawing.Point(391, 242);
+            this.btn_intlaunch.Location = new System.Drawing.Point(334, 163);
             this.btn_intlaunch.Name = "btn_intlaunch";
             this.btn_intlaunch.Size = new System.Drawing.Size(119, 23);
             this.btn_intlaunch.TabIndex = 11;
@@ -157,11 +150,29 @@
             this.lbl_csvf.TabIndex = 13;
             this.lbl_csvf.Text = "Aucun  répertoire séléctionné";
             // 
+            // cb_csvf
+            // 
+            this.cb_csvf.FormattingEnabled = true;
+            this.cb_csvf.Location = new System.Drawing.Point(146, 36);
+            this.cb_csvf.Name = "cb_csvf";
+            this.cb_csvf.Size = new System.Drawing.Size(157, 21);
+            this.cb_csvf.TabIndex = 14;
+            // 
+            // lbl_info
+            // 
+            this.lbl_info.AutoSize = true;
+            this.lbl_info.Location = new System.Drawing.Point(331, 36);
+            this.lbl_info.Name = "lbl_info";
+            this.lbl_info.Size = new System.Drawing.Size(0, 13);
+            this.lbl_info.TabIndex = 15;
+            // 
             // form_add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 282);
+            this.ClientSize = new System.Drawing.Size(509, 203);
+            this.Controls.Add(this.lbl_info);
+            this.Controls.Add(this.cb_csvf);
             this.Controls.Add(this.lbl_csvf);
             this.Controls.Add(this.btn_brwsecsv);
             this.Controls.Add(this.btn_intlaunch);
@@ -169,7 +180,6 @@
             this.Controls.Add(this.rb_rand);
             this.Controls.Add(this.cb_sclrlvl);
             this.Controls.Add(this.tb_sclyr);
-            this.Controls.Add(this.clb_csvf);
             this.Controls.Add(this.lbl_wpatype);
             this.Controls.Add(this.lbl_lvl);
             this.Controls.Add(this.lbl_schlyr);
@@ -190,7 +200,6 @@
         private System.Windows.Forms.Label lbl_schlyr;
         private System.Windows.Forms.Label lbl_lvl;
         private System.Windows.Forms.Label lbl_wpatype;
-        private System.Windows.Forms.CheckedListBox clb_csvf;
         private System.Windows.Forms.TextBox tb_sclyr;
         private System.Windows.Forms.ComboBox cb_sclrlvl;
         private System.Windows.Forms.RadioButton rb_rand;
@@ -198,5 +207,7 @@
         private System.Windows.Forms.Button btn_intlaunch;
         private System.Windows.Forms.Button btn_brwsecsv;
         private System.Windows.Forms.Label lbl_csvf;
+        private System.Windows.Forms.ComboBox cb_csvf;
+        private System.Windows.Forms.Label lbl_info;
     }
 }
