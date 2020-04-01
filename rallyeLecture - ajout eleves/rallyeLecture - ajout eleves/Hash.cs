@@ -12,7 +12,7 @@ namespace rallyeLecture___ajout_eleves {
             using (MD5 md5Hash = MD5.Create()) {
                 strid = GetMd5Hash(md5Hash, strid);
             }
-            password = String.Format(strid + password);
+            password = String.Format("{0}{1}", strid, password);
             var message = Encoding.ASCII.GetBytes(password);
             SHA256Managed hashstring = new SHA256Managed();
             string hex = "";
