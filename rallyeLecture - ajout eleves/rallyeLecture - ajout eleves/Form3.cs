@@ -36,10 +36,11 @@ namespace rallyeLecture___ajout_eleves {
 
         private void btn_intlaunch_Click(object sender, EventArgs e) {
             int niv = cb_sclrlvl.SelectedIndex + 1;
-            int year = Convert.ToInt32(tb_sclyr.Text) ;
+            int resultParse = 0;
             string selectedCsvPath = lbl_csvf.Text + "\\" +cb_csvf.SelectedItem;
             PassWordType pst;
-            if ((rb_rand.Checked)||(rb_build.Checked)) {
+            if ((rb_rand.Checked||(rb_build.Checked))&&(int.TryParse(tb_sclyr.Text, out resultParse))) {
+                int year = Convert.ToInt32(tb_sclyr.Text);
                 if (rb_rand.Checked) {
                     pst = PassWordType.aleatoire;
                 }
@@ -66,7 +67,7 @@ namespace rallyeLecture___ajout_eleves {
                     cmd.Connection = cnx;
                     cmd.CommandText = requete;
                     int idAuth = Convert.ToInt32(cmd.ExecuteScalar()) + 1;
-                    requete = "insert into aauth_users(email,pass) values('"+elv.Login+"','"+Hash.GetSha256FromString(elv.PassWord,Convert.ToString(idAuth))+"')";
+                    requete = "insert into aauth_users(id,email,pass) values("+idAuth+",'"+elv.Login+"','"+Hash.GetSha256FromString(elv.PassWord,Convert.ToString(idAuth))+"')";
                     cmd.Connection = cnx;
                     cmd.CommandText = requete;
                     cmd.ExecuteNonQuery();
@@ -75,9 +76,11 @@ namespace rallyeLecture___ajout_eleves {
                     cmd.CommandText = requete;
                     cmd.ExecuteNonQuery();
                 }
-                LesEleves.CreateCsvPasswordFile(cb_sclrlvl.SelectedText,year,leselv);
+                string niveauChoisie = cb_sclrlvl.SelectedText;
+                LesEleves.CreateCsvPasswordFile(cb_sclrlvl.SelectedItem.ToString(),year,leselv);
                 lbl_info.Text = String.Format("Fichier {0} inséré.",cb_csvf.SelectedItem);
             }
+            lbl_info.Text = String.Format("Fichier {0} inséré.", cb_csvf.SelectedItem);
         }
 
         private void btn_brwsecsv_Click(object sender, EventArgs e) {

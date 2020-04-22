@@ -10,7 +10,7 @@ namespace rallyeLecture___ajout_eleves {
     class LesEleves {
         static public void CreateCsvPasswordFile(string niveau, int annee, List<Eleve> lesEleves) {
             string nomFichier = String.Format("../../../../{0}-{1}.txt",annee,niveau);
-            StreamWriter fichier = new StreamWriter(nomFichier);
+            StreamWriter fichier = new StreamWriter(nomFichier,false, System.Text.Encoding.GetEncoding(1252));
             foreach (Eleve elv in lesEleves) {
                 string info = String.Format("{0}\t{1}\t{2}\t{3}",elv.Nom,elv.Prenom,elv.Login,elv.PassWord);
                 fichier.WriteLine(info);
@@ -20,7 +20,7 @@ namespace rallyeLecture___ajout_eleves {
         }
 
         static public List<Eleve> LoadCsv(PassWordType passWordType,string csv) {
-            StreamReader sr = new StreamReader(csv);
+            StreamReader sr = new StreamReader(csv, System.Text.Encoding.GetEncoding(1252),false);
             List<Eleve> lesEleves = new List<Eleve>(); 
             while (!sr.EndOfStream) {
                 string laLigne = sr.ReadLine();

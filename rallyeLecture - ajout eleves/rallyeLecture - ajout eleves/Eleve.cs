@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +10,7 @@ namespace rallyeLecture___ajout_eleves {
         private string prenom;
         private string login;
         private string passWord;
+        private static readonly Random rand = new Random();
 
 
         public Eleve(string nom, string prenom, string login, PassWordType pst) {
@@ -24,7 +25,6 @@ namespace rallyeLecture___ajout_eleves {
         public string PassWord { get => passWord; set => passWord = value; }
 
         private string GetPasswordAleatoire() {
-            Random rand = new Random();
             int chiffre = rand.Next(0, 10);
             char[] chiffres = { '0','1','2','3','4','5','6','7','8','9'};
             char plus = '+';
