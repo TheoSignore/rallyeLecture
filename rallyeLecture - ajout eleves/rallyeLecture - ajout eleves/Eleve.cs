@@ -65,6 +65,7 @@ namespace rallyeLecture___ajout_eleves {
 
         private string GetPassWordConstruit() {
             string passConstruit = this.prenom[0] + this.nom;
+            passConstruit = passConstruit.Replace(" ", "");
             return passConstruit.ToLower();
         }
         public string GetNewPassWord(PassWordType passWordType) {

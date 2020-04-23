@@ -32,14 +32,19 @@ namespace rallyeLecture___ajout_eleves {
                 cb_sclrlvl.Items.Add(rdr.GetString(1));
                 cb_sclrlvl.ItemHeight = rdr.GetInt32(0);
             }
+            cb_sclrlvl.DropDownStyle = ComboBoxStyle.DropDownList;
+            cb_sclrlvl.SelectedIndex = 0;
+            cb_csvf.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void btn_intlaunch_Click(object sender, EventArgs e) {
+            lbl_info.Text = "";
+            System.Threading.Thread.Sleep(1000);
             int niv = cb_sclrlvl.SelectedIndex + 1;
             int resultParse = 0;
-            string selectedCsvPath = lbl_csvf.Text + "\\" +cb_csvf.SelectedItem;
             PassWordType pst;
-            if ((rb_rand.Checked||(rb_build.Checked))&&(int.TryParse(tb_sclyr.Text, out resultParse))) {
+            if ((rb_rand.Checked||(rb_build.Checked))&&(int.TryParse(tb_sclyr.Text, out resultParse))&&(cb_csvf.SelectedItem != null)) {
+                string selectedCsvPath = lbl_csvf.Text + "\\" + cb_csvf.SelectedItem;
                 int year = Convert.ToInt32(tb_sclyr.Text);
                 if (rb_rand.Checked) {
                     pst = PassWordType.aleatoire;
@@ -80,12 +85,13 @@ namespace rallyeLecture___ajout_eleves {
                 LesEleves.CreateCsvPasswordFile(cb_sclrlvl.SelectedItem.ToString(),year,leselv);
                 lbl_info.Text = String.Format("Fichier {0} inséré.",cb_csvf.SelectedItem);
             }
-            lbl_info.Text = String.Format("Fichier {0} inséré.", cb_csvf.SelectedItem);
+            else lbl_info.Text = "Paramètre(s) incorrecte ou manquant.";
         }
 
         private void btn_brwsecsv_Click(object sender, EventArgs e) {
+            cb_csvf.Items.Clear();
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.RootFolder = Environment.SpecialFolder.MyComputer;
+            fbd.RootFolder = Environment.SpecialFolder.UserProfile;
             if (fbd.ShowDialog() == DialogResult.OK) {
                 lbl_csvf.Text = fbd.SelectedPath;
                 string[] allfiles = Directory.GetFiles(fbd.SelectedPath);
@@ -95,6 +101,7 @@ namespace rallyeLecture___ajout_eleves {
                         cb_csvf.Items.Add(decomposedPath[decomposedPath.Length - 1]);
                     }
                 }
+                cb_csvf.SelectedIndex = 0;
             }
         }
 

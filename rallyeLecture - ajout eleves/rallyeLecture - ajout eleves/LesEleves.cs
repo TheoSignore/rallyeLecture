@@ -33,17 +33,18 @@ namespace rallyeLecture___ajout_eleves {
                 else info = laLigne.Split('\t');
                 string prenom = info[0];
                 string nom = info[1];
-                string login = fuckAccent(prenom) + fuckAccent(nom) + "@sio.jjr.fr";
+                string login = fuckAccentAndSpaces(prenom) + fuckAccentAndSpaces(nom) + "@sio.jjr.fr";
                 login = login.ToLower();
                 Eleve unEleve = new Eleve(nom, prenom, login,passWordType);
                 lesEleves.Add(unEleve);
             }
             return lesEleves;
         }
-        static private string fuckAccent(string laChaine) {
-            laChaine.Replace('é', 'e');
-            laChaine.Replace('à', 'a');
-            laChaine.Replace('è', 'e');
+        static private string fuckAccentAndSpaces(string laChaine) {
+            laChaine = laChaine.Replace('é', 'e');
+            laChaine = laChaine.Replace('à', 'a');
+            laChaine = laChaine.Replace('è', 'e');
+            laChaine = laChaine.Replace(" ", "");
             return laChaine;
         }
     }
